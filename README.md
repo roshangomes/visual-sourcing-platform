@@ -40,35 +40,25 @@ This project implements the **core business logic** defined in the BRD and demon
 - No checkout or payment (as per BRD)
 
 ---
+## Technology Stack
 
-## System Architecture
+| Layer | Technology |
+|------|------------|
+| Runtime | Node.js (v25) |
+| Language | TypeScript (ESM) |
+| Framework | Express.js |
+| File Upload | Multer |
+| Dev Runner | tsx |
+| Storage | In-memory (MVP) |
 
-```mermaid
-flowchart TD
-    A[Client / API Consumer] --> B[Image Upload API]
-    B --> C[Image Session Service]
-    C --> D[Design Pattern Engine]
-    D --> E[Recommendation Engine]
+> No database or frontend is used intentionally to focus on business logic validation.
 
-    E --> F[Inventory-first Sourcing]
-    E --> G[Manufacturer Fallback]
+---
 
-    F --> H[Pricing Engine]
-    G --> H[Pricing Engine]
+## API Endpoints
 
-    H --> I[Intended Cart Service]
-    I --> J[Intent Submission]
-Technology Stack
-Layer	Technology
-Runtime	Node.js (v25)
-Language	TypeScript (ESM)
-Framework	Express.js
-File Upload	Multer
-Dev Runner	tsx
-Storage	In-memory (MVP)
-No database or frontend is used intentionally to focus on business logic validation.
-API Endpoints
-Health Check
+### Health Check
+```http
 GET /health
 Image Upload
 POST /api/images/upload
