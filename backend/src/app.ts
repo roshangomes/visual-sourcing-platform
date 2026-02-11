@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import imageRoutes from './routes/imageRoutes.js';
 import recommendationRoutes from './routes/recommendationRoutes.js';
+import cartRoutes from './routes/cartRoutes.js';
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 // routes
 app.use('/api/images', imageRoutes);
 app.use('/api/recommendations', recommendationRoutes);
+app.use('/api/cart', cartRoutes);
 
 app.get('/health', (_req, res) => {
   res.json({
