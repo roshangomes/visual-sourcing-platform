@@ -1,8 +1,20 @@
+import { randomUUID } from 'crypto';
+
 export const createImageSession = async (filePath: string) => {
-  // TODO: Implement image session creation logic
+  // Mock attribute extraction (PRD-aligned)
+  const attributes = {
+    category: 'RING',
+    shape: 'ROUND',
+    stoneDensity: 'MEDIUM',
+    metalVisibility: 'HIGH',
+    finish: 'POLISHED'
+  };
+
   return {
-    id: Date.now().toString(),
+    imageSessionId: randomUUID(),
     filePath,
-    createdAt: new Date().toISOString(),
+    attributes,
+    status: 'COMPLETED',
+    createdAt: new Date().toISOString()
   };
 };
